@@ -1,0 +1,23 @@
+.container {
+  padding: 15px;
+}
+
+.error {
+  text-align: left;
+  color: red;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.label {
+  width: 100%;
+  text-align: left;
+}
+
+.dropdown-menu.show {
+  width: 200px;
+}
