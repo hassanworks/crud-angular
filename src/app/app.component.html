@@ -115,14 +115,6 @@
 
   <!-- AGE FILTER DROPDOWN -->
 
-  <!-- <label for="cars">Choose a car:</label>
-  <select name="cars" id="cars">
-    <option value="all">All</option>
-    <option value="16-25">16-25</option>
-    <option value="opel">26-50</option>
-    <option value="audi">51-70</option>
-  </select> -->
-
   <div ngbDropdown class="d-inline-block" style="padding-right: 25px">
     <h4>Filter by Age</h4>
     <button
@@ -179,7 +171,6 @@
       <th scope="col">Edit Row</th>
       <th scope="col">Delete Row</th>
     </tr>
-    <!-- <tr *ngFor="let item of employeeData; let i = index"> -->
     <tr *ngFor="let item of employeeData">
       <td>{{ item.id }}</td>
       <td>{{ item.employee_name | titlecase }}</td>
@@ -197,7 +188,6 @@
           Delete
         </button>
       </td>
-      <!-- <button (click)="onDelete(item.id, i)">Delete</button> -->
     </tr>
   </table>
 </div>

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AppService } from './app.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -14,9 +13,6 @@ export class AppComponent {
   apiData: any = [];
   employeeData: any = [];
   allData: any = [];
-  // fliteredValues: any = [];
-  // filteredAge: any = [];
-  // filteredSalary: any = [];
   showDataInModal: any = [];
   showUpdate: boolean = false;
   showSubmit: boolean = false;
@@ -69,23 +65,13 @@ export class AppComponent {
       this.apiData = data;
       this.employeeData = this.apiData.data;
       this.allData = this.apiData.data;
-      console.log('Nama: ', this.employeeData);
     });
   }
 
   search() {
-    console.log('input: ', this.searchText);
-
-    // debugger;
     let filt = this.allData.filter(
       (el) => this.searchText === el.employee_name.toUpperCase
     );
-    console.log('filter: ', filt);
-
-    // if (this.searchText === filter) {
-    //   console.log('this.searchText: ', this.searchText);
-    //   console.log('this.allData.employee_name: ', this.allData.employee_name);
-    // }
   }
 
   filterValues() {
@@ -108,22 +94,6 @@ export class AppComponent {
     this.ageFilter = { min: min, max: max };
     this.displayAgeFilterTitle = Number(min) > 0 ? `${min}-${max}` : 'All'; // Display title
     this.filterValues();
-    // if (this.filteredBySalary) {
-    //   let filteredVal = this.fliteredValues.filter(
-    //     (el) => el.employee_age >= min && el.employee_age < max
-    //   );
-    //   this.displayAgeFilterTitle = `${min}-${max}`; // Display name
-    //   this.employeeData = filteredVal;
-    //   this.filteredByAge = true;
-    // } else {
-    //   let filteredVal = this.allData.filter(
-    //     (el) => el.employee_age >= min && el.employee_age < max
-    //   );
-    //   this.displayAgeFilterTitle = `${min}-${max}`; // Display name
-    //   this.fliteredValues = filteredVal;
-    //   this.employeeData = filteredVal;
-    //   this.filteredByAge = true;
-    // }
   }
 
   // FILTER BY SALARY
@@ -131,22 +101,6 @@ export class AppComponent {
     this.salaryFilter = { min: min, max: max };
     this.displaySalaryFilterTitle = Number(min) > 0 ? `${min}-${max}` : 'All'; // Display title
     this.filterValues();
-    // if (this.filteredByAge) {
-    //   let filteredVal = this.fliteredValues.filter(
-    //     (el) => el.employee_salary >= min && el.employee_salary < max
-    //   );
-    //   this.displaySalaryFilterTitle = `${min}-${max}`; // Display name
-    //   this.employeeData = filteredVal;
-    //   this.filteredBySalary = true;
-    // } else {
-    //   let filteredVal = this.allData.filter(
-    //     (el) => el.employee_salary >= min && el.employee_salary < max
-    //   );
-    //   this.displaySalaryFilterTitle = `${min}-${max}`; // Display name
-    //   this.fliteredValues = filteredVal;
-    //   this.employeeData = filteredVal;
-    //   this.filteredBySalary = true;
-    // }
   }
 
   // SORTING STARTS HERE
